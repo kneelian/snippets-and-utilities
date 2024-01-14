@@ -1,0 +1,3 @@
+# simplify-fractions
+
+This folder contains a header that contains a fraction simplification routine in `simplify.hpp`, and example usage in `main.cpp`. It's fairly simple. There's a precomputed table of all 8-bit primes in the header `prime_table.hpp`, and you can enable its use by uncommenting the `#define TABLE` macro at the start of `simplify.hpp`. This can have a varying effect on your performance, but will probably result in a *slowdown*, and is completely elided when using `-O2` or higher. It is included as an example of a different sort of approach. Not the neatest code, but I still have use for it.
