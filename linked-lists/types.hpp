@@ -134,3 +134,21 @@ struct unode // graph node with unweighted edges and non-duplicate links
 	}
 
 };
+
+bool ancestor_of(unode* a, unode* b)
+{
+	if(a->children.contains(b)) { return true; } else
+	{
+		for(auto i: a->children)
+		{
+			return ancestor_of(i, b);
+		}
+	}
+
+	return false;
+}
+
+bool connected(unode* a, unode* b)
+{
+	return(ancestor_of(a, b) or ancestor_of(b, a));
+}
