@@ -74,6 +74,10 @@ struct d_list // doubly linked
 	}
 };
 
+struct unode;
+bool ancestor_of(unode* a, unode* b);
+bool connected(unode* a, unode* b);
+
 struct unode // graph node with unweighted edges and non-duplicate links
 {
 	int data = 0;
@@ -131,6 +135,11 @@ struct unode // graph node with unweighted edges and non-duplicate links
 	bool operator!=(unode &rhs)
 	{
 		return !(*this == rhs);
+	}
+
+	bool loops()
+	{
+		return ancestor_of(this, this);
 	}
 
 };

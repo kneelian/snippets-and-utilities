@@ -74,6 +74,8 @@ int main()
 	printf("h and f are%s connected\n", connected(&h,&f)?"":"n't");
 	printf("g and o are%s connected\n", connected(&g,&orphan)?"":"n't");
 	printf("g and x are%s connected\n", connected(&g,&x)?"":"n't");
+	printf("x %s a loop\n", x.loops()?"forms":"doesn't form");
+	printf("h %s a loop\n", h.loops()?"forms":"doesn't form");
 	printf("\n");
 	return 0;
 }
