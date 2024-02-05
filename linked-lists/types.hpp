@@ -1,4 +1,3 @@
-#include <vector>
 #include <unordered_set>
 
 struct s_list	// singly linked
@@ -75,10 +74,9 @@ struct d_list // doubly linked
 	}
 };
 
-struct unode // graph node with unweighted edges
+struct unode // graph node with unweighted edges and non-duplicate links
 {
 	int data = 0;
-	//std::vector<unode*> children
 	std::unordered_set<unode*> children;
 	std::unordered_set<unode*> parents;
 
