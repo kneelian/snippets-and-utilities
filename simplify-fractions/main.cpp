@@ -5,16 +5,15 @@
 
 int main()
 {
-	std::random_device r;
-	std::mt19937 gen(r());
+    std::random_device r;
+    std::mt19937 gen(r());
+    std::uniform_int_distribution<> d(0, (1<<16) - 1);
 
-	for(int i = 0; i < 500000; i++)
-	{
-		uint32_t a = r() & (1 << 16)-1;
-		uint32_t b = r() & (1 << 16)-1;
-		//std::cout << a << "/" << b << " --> ";
-		frac_t p = simplify({a, b});
-		//std::cout << p.a << "/" << p.b << std::endl;
-	}
-	return 0;
+    for(int i = 0; i < 500000; i++)
+    {
+        uint32_t a = d(gen);
+        uint32_t b = d(gen);
+        frac_t p = simplify({a, b});
+    }
+    return 0;
 }
