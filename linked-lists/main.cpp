@@ -36,5 +36,29 @@ int main()
 		tempb = *tempb.prev;
 	} printf("\n");
 
+	unode x, y, z;
+	x.add_child(&y); x.add_child(&z);
+	y.add_child(&z); y.add_child(&x);
+	z.add_child(&x);
+	x.set(5); y.set(10); z.set(15);
+
+	printf("children of x(%d): ", x.data);
+	for(auto i: x.children)
+	{
+		printf("%d ", i->data);
+	}
+	printf("\n");
+
+	printf("grandchildren of x(%d): ", x.data);
+	for(auto i: x.children)
+	{
+		printf(" from (%d): ",  i->data);
+		for(auto j: i->children)
+		{
+			printf("%d ", j->data);
+		}
+	}
+
+	printf("\n");
 	return 0;
 }

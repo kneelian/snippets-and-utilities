@@ -100,6 +100,8 @@ struct unode // graph node with unweighted edges and non-duplicate links
 	bool remove_parent(unode* arg)
 	{
 		arg->remove_child(this);
+		parents.erase(parents.find(arg));
+		return !(parents.contains(arg));
 	}
 
 	bool remove_all_children()
@@ -120,6 +122,15 @@ struct unode // graph node with unweighted edges and non-duplicate links
 		}
 		parents.clear();
 		return (parents.size() == 0);
+	}
+
+	bool operator==(unode& rhs)
+	{
+		return (*this == rhs);
+	}
+	bool operator!=(unode &rhs)
+	{
+		return !(*this == rhs);
 	}
 
 };
