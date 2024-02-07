@@ -1,0 +1,1 @@
+This is an example of using a thin C wrapper over function pointers and function pointer invocation for QB64 code inclusion.
